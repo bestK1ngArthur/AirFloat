@@ -10,5 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import <libairfloat/audiooutput.h>
+#import <libairfloat/raopserver.h>
 
 #endif /* AirFlow_Bridging_Header_h */
+
