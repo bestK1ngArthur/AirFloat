@@ -1,5 +1,5 @@
 //
-//  RaopServer.swift
+//  AirPlayServer.swift
 //  AirFlow-swift
 //
 //  Created by bestK1ng on 24/02/2019.
@@ -10,10 +10,11 @@ import Foundation
 typealias RaopServerSettings = raop_server_settings_t
 typealias RaopServerPointer = raop_server_p
 
+/// Remote Audio Output Protocol Server
 class RaopServer {
 
-    private var serverPointer: RaopServerPointer
-    private var settings: RaopServerSettings
+    private(set) var serverPointer: RaopServerPointer
+    private(set) var settings: RaopServerSettings
 
     var isRunning: Bool {
         return raop_server_is_running(serverPointer)
@@ -33,6 +34,10 @@ class RaopServer {
                 port += 1
             }
         }
+    }
+    
+    func stop() {
+        raop_server_stop(serverPointer)
     }
     
     func updateSettings(_ newSettings: RaopServerSettings) {

@@ -18,7 +18,11 @@
 		4898FA9713CF2D6C006EC97E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4898FA9613CF2D6C006EC97E /* AudioToolbox.framework */; };
 		6A888251222295FA00D11B11 /* RaopServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A888250222295FA00D11B11 /* RaopServer.swift */; };
 		6A8882532222A70E00D11B11 /* AudioOutputSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8882522222A70E00D11B11 /* AudioOutputSession.swift */; };
-		6A8882562222A92B00D11B11 /* AppNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8882552222A92B00D11B11 /* AppNotificationCenter.swift */; };
+		6A8882562222A92B00D11B11 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8882552222A92B00D11B11 /* NotificationService.swift */; };
+		6A8882592222FE1E00D11B11 /* DacpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8882582222FE1E00D11B11 /* DacpClient.swift */; };
+		6A88825B2223003D00D11B11 /* RaopSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A88825A2223003D00D11B11 /* RaopSession.swift */; };
+		6A88825D2223101900D11B11 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A88825C2223101900D11B11 /* Helpers.swift */; };
+		6A88825F2223142100D11B11 /* AirPlayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A88825E2223142100D11B11 /* AirPlayService.swift */; };
 		6AA3B1AE2221503600570789 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3B1AD2221503600570789 /* AppDelegate.swift */; };
 		6AA3B1B02221503600570789 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3B1AF2221503600570789 /* PlayViewController.swift */; };
 		6AA3B1B32221503600570789 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA3B1B12221503600570789 /* Main.storyboard */; };
@@ -163,7 +167,11 @@
 		4898FA9613CF2D6C006EC97E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6A888250222295FA00D11B11 /* RaopServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaopServer.swift; sourceTree = "<group>"; };
 		6A8882522222A70E00D11B11 /* AudioOutputSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutputSession.swift; sourceTree = "<group>"; };
-		6A8882552222A92B00D11B11 /* AppNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationCenter.swift; sourceTree = "<group>"; };
+		6A8882552222A92B00D11B11 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		6A8882582222FE1E00D11B11 /* DacpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DacpClient.swift; sourceTree = "<group>"; };
+		6A88825A2223003D00D11B11 /* RaopSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaopSession.swift; sourceTree = "<group>"; };
+		6A88825C2223101900D11B11 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		6A88825E2223142100D11B11 /* AirPlayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayService.swift; sourceTree = "<group>"; };
 		6AA3B1AB2221503600570789 /* AirFlow-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AirFlow-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA3B1AD2221503600570789 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AA3B1AF2221503600570789 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +399,7 @@
 		6A88824F22215E7100D11B11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A88825C2223101900D11B11 /* Helpers.swift */,
 				6AA3B1C72221533000570789 /* AirFlow-Bridging-Header.h */,
 				6AA3B1C82221563400570789 /* AirFloat-swift-Prefix.pch */,
 				6AA3B1B92221503800570789 /* Info.plist */,
@@ -402,21 +411,32 @@
 			isa = PBXGroup;
 			children = (
 				6A8882522222A70E00D11B11 /* AudioOutputSession.swift */,
-				6A888250222295FA00D11B11 /* RaopServer.swift */,
 			);
 			name = "Audio Layer";
+			sourceTree = "<group>";
+		};
+		6A8882572222FBEB00D11B11 /* Airplay Layer */ = {
+			isa = PBXGroup;
+			children = (
+				6A88825E2223142100D11B11 /* AirPlayService.swift */,
+				6A888250222295FA00D11B11 /* RaopServer.swift */,
+				6A88825A2223003D00D11B11 /* RaopSession.swift */,
+				6A8882582222FE1E00D11B11 /* DacpClient.swift */,
+			);
+			name = "Airplay Layer";
 			sourceTree = "<group>";
 		};
 		6AA3B1AC2221503600570789 /* AirFlow-swift */ = {
 			isa = PBXGroup;
 			children = (
 				6AA3B1AD2221503600570789 /* AppDelegate.swift */,
-				6A8882552222A92B00D11B11 /* AppNotificationCenter.swift */,
+				6A8882552222A92B00D11B11 /* NotificationService.swift */,
 				6AA3B1AF2221503600570789 /* PlayViewController.swift */,
 				6AA3B1B12221503600570789 /* Main.storyboard */,
 				6AA3B1B62221503800570789 /* LaunchScreen.storyboard */,
 				6AA3B1B42221503800570789 /* Assets.xcassets */,
 				6A8882542222A82C00D11B11 /* Audio Layer */,
+				6A8882572222FBEB00D11B11 /* Airplay Layer */,
 				6A88824F22215E7100D11B11 /* Supporting Files */,
 			);
 			path = "AirFlow-swift";
@@ -911,9 +931,13 @@
 			files = (
 				6AA3B1B02221503600570789 /* PlayViewController.swift in Sources */,
 				6AA3B1AE2221503600570789 /* AppDelegate.swift in Sources */,
+				6A88825B2223003D00D11B11 /* RaopSession.swift in Sources */,
+				6A88825F2223142100D11B11 /* AirPlayService.swift in Sources */,
+				6A88825D2223101900D11B11 /* Helpers.swift in Sources */,
+				6A8882592222FE1E00D11B11 /* DacpClient.swift in Sources */,
 				6A8882532222A70E00D11B11 /* AudioOutputSession.swift in Sources */,
 				6A888251222295FA00D11B11 /* RaopServer.swift in Sources */,
-				6A8882562222A92B00D11B11 /* AppNotificationCenter.swift in Sources */,
+				6A8882562222A92B00D11B11 /* NotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

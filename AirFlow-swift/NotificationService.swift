@@ -1,5 +1,5 @@
 //
-//  AppNotificationCenter.swift
+//  NotificationService.swift
 //  AirFlow-swift
 //
 //  Created by bestK1ng on 24/02/2019.
@@ -8,9 +8,9 @@
 import Foundation
 import UserNotifications
 
-class AppNotificationCenter {
+class NotificationService {
 
-    static let current = AppNotificationCenter()
+    static let standart = NotificationService()
     
     func checkNotificationRequest() {
         

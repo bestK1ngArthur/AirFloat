@@ -9,8 +9,12 @@
 #define AirFlow_Bridging_Header_h
 
 #import <Foundation/Foundation.h>
+
 #import <libairfloat/audiooutput.h>
+#import <libairfloat/webserverconnection.h>
 #import <libairfloat/raopserver.h>
+#import <libairfloat/raopsession.h>
+#import <libairfloat/dacpclient.h>
 
 #endif /* AirFlow_Bridging_Header_h */
 
