@@ -20,6 +20,10 @@ class RaopServer {
         return raop_server_is_running(serverPointer)
     }
     
+    var isRecording: Bool {
+        return raop_server_is_recording(serverPointer)
+    }
+    
     init(settings: RaopServerSettings) {
         self.settings = settings
         self.serverPointer = raop_server_create(settings)
