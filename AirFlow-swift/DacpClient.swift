@@ -18,7 +18,17 @@ protocol DacpClientDelegate: AnyObject {
 /// Digital Audio Control Protocol Client
 class DacpClient {
 
+    enum State: Int {
+        case stopped = 2
+        case paused
+        case playing
+    }
+    
     weak var delegate: DacpClientDelegate?
+    
+    var state: State {
+        return State(rawValue: Int(dacp_client_get_playback_state(clientPointer).rawValue)) ?? .stopped
+    }
     
     private var clientPointer: DacpClientPointer
     
@@ -63,5 +73,29 @@ class DacpClient {
             selfObject.delegate?.dacpClientControlsBecameUnavailable(selfObject)
             
         }, selfPointer)
+    }
+    
+    func stop() {
+        dacp_client_stop(clientPointer)
+    }
+    
+    func togglePlay() {
+        dacp_client_toggle_playback(clientPointer)
+    }
+    
+    func next() {
+        dacp_client_next(clientPointer)
+    }
+    
+    func previous() {
+        dacp_client_previous(clientPointer)
+    }
+    
+    func seek(seconds: Float) {
+        dacp_client_seek(clientPointer, seconds)
+    }
+    
+    func setVolume(_ volume: Float) {
+        dacp_client_set_volume(clientPointer, volume)
     }
 }

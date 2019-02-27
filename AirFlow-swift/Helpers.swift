@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 
 // TODO: Test pointers
 
@@ -24,3 +25,7 @@ func bridge<T : AnyObject>(ptr : UnsafeMutableRawPointer) -> T {
 //func bridgeTransfer<T : AnyObject>(ptr : UnsafeRawPointer) -> T {
 //    return Unmanaged<T>.fromOpaque(ptr).takeRetainedValue()
 //}
+
+func log(_ message: String) {
+    os_log("%@", message)
+}

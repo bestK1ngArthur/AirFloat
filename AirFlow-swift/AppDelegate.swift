@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Start ROAP server
         AirPlayService.standart.startServer()
         
+        // Start updating now playing info
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
         return true
     }
 
