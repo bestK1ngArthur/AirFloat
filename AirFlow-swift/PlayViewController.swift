@@ -18,6 +18,9 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
+    @IBOutlet weak var pulseImageView: UIImageView!
+    @IBOutlet weak var pulseView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
@@ -26,10 +29,26 @@ class PlayViewController: UIViewController {
         AirPlayService.standart.startSession()
         
         changePlayerState(.hidden)
+        startPulsation()
     }
     
     func initUI() {
-        self.artworkImageView.layer.cornerRadius = 16
+        view.backgroundColor = AppTheme.current.backColor
+        playerView.backgroundColor = AppTheme.current.backColor
+        
+        artworkImageView.layer.cornerRadius = 16
+        
+        titleLabel.textColor = AppTheme.current.textColor
+        subtitleLabel.textColor = AppTheme.current.textColor
+        
+        playButton.tintColor = AppTheme.current.imageColor
+        nextButton.tintColor = AppTheme.current.imageColor
+        previousButton.tintColor = AppTheme.current.imageColor
+
+        pulseImageView.tintColor = AppTheme.current.imageColor
+        pulseView.backgroundColor = AppTheme.current.tintTextColor.withAlphaComponent(0.3)
+        pulseView.layer.cornerRadius = pulseView.frame.height / 2
+        pulseView.isHidden = true
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
@@ -56,6 +75,28 @@ class PlayViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.playerView.isHidden = isHidden
         }
+        
+        if isHidden {
+            startPulsation()
+        } else {
+            finishPulsation()
+        }
+    }
+    
+    private func startPulsation() {
+        pulseView.isHidden = false
+        
+        let scale: CGFloat = 35
+        
+        UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat], animations: {
+            self.pulseView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale)
+        }, completion: nil)
+    }
+    
+    private func finishPulsation() {
+
+        pulseView.layer.removeAllAnimations()
+        pulseView.isHidden = true
     }
 }
 

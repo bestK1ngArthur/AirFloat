@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Start updating now playing info
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
+        // Set theme
+        AppTheme.dark.perform()
+        
         return true
     }
 

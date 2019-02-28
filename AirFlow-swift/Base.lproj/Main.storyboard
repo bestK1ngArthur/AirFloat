@@ -18,6 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c07-Lr-bFo">
+                                <rect key="frame" x="185" y="331" width="5" height="5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="5" id="diE-ls-TeT"/>
+                                    <constraint firstAttribute="height" constant="5" id="xCv-RB-rFj"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Microchip" translatesAutoresizingMaskIntoConstraints="NO" id="3Vh-8b-Hsm">
+                                <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="14m-DN-3vt"/>
+                                    <constraint firstAttribute="width" constant="60" id="NS9-9B-bc1"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2v-dC-7RH">
                                 <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <subviews>
@@ -30,19 +46,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hml-I6-A7G">
-                                        <rect key="frame" x="151" y="322" width="41" height="26"/>
+                                        <rect key="frame" x="151" y="330" width="41" height="26"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7d-jZ-DX8">
-                                        <rect key="frame" x="138" y="356" width="67" height="24"/>
+                                        <rect key="frame" x="138" y="364" width="67" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="244-Dp-DUO">
-                                        <rect key="frame" x="146.5" y="420" width="50" height="50"/>
+                                        <rect key="frame" x="146.5" y="428" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="BdW-Y8-o6l"/>
                                             <constraint firstAttribute="height" constant="50" id="kR5-ac-5ZB"/>
@@ -53,7 +69,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4T-en-0Iu">
-                                        <rect key="frame" x="220.5" y="420" width="50" height="50"/>
+                                        <rect key="frame" x="220.5" y="428" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="34t-Fr-Mlr"/>
                                             <constraint firstAttribute="height" constant="50" id="ySc-aG-gZh"/>
@@ -65,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-xr-Qb5">
-                                        <rect key="frame" x="72.5" y="420" width="50" height="50"/>
+                                        <rect key="frame" x="72.5" y="428" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="5bP-JJ-O2I"/>
                                             <constraint firstAttribute="height" constant="50" id="abP-9y-E7F"/>
@@ -83,7 +99,7 @@
                                     <constraint firstItem="Mqh-xr-Qb5" firstAttribute="top" secondItem="q7d-jZ-DX8" secondAttribute="bottom" constant="40" id="Dfw-fm-KlF"/>
                                     <constraint firstItem="q7d-jZ-DX8" firstAttribute="centerX" secondItem="u2v-dC-7RH" secondAttribute="centerX" id="FmL-Tq-etP"/>
                                     <constraint firstItem="244-Dp-DUO" firstAttribute="centerX" secondItem="u2v-dC-7RH" secondAttribute="centerX" id="GDU-Jl-NAE"/>
-                                    <constraint firstItem="hml-I6-A7G" firstAttribute="top" secondItem="UcA-dH-wR3" secondAttribute="bottom" constant="32" id="GER-te-bAg"/>
+                                    <constraint firstItem="hml-I6-A7G" firstAttribute="top" secondItem="UcA-dH-wR3" secondAttribute="bottom" constant="40" id="GER-te-bAg"/>
                                     <constraint firstItem="UcA-dH-wR3" firstAttribute="top" secondItem="u2v-dC-7RH" secondAttribute="top" constant="50" id="GY6-HB-NDU"/>
                                     <constraint firstItem="X4T-en-0Iu" firstAttribute="top" secondItem="q7d-jZ-DX8" secondAttribute="bottom" constant="40" id="HEj-w3-WTq"/>
                                     <constraint firstItem="244-Dp-DUO" firstAttribute="leading" secondItem="Mqh-xr-Qb5" secondAttribute="trailing" constant="24" id="Tav-6S-6VE"/>
@@ -96,9 +112,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3Vh-8b-Hsm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0DC-EP-vsB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="u2v-dC-7RH" secondAttribute="bottom" constant="16" id="39u-0A-1KV"/>
+                            <constraint firstItem="c07-Lr-bFo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3De-2X-eiw"/>
+                            <constraint firstItem="3Vh-8b-Hsm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ghj-tH-yJD"/>
                             <constraint firstItem="u2v-dC-7RH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Rup-XT-9RP"/>
                             <constraint firstItem="u2v-dC-7RH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SAh-bF-6Yp"/>
+                            <constraint firstItem="c07-Lr-bFo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xkd-zZ-le1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u2v-dC-7RH" secondAttribute="trailing" constant="16" id="nOc-Tv-4tI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -113,6 +133,8 @@
                         <outlet property="playButton" destination="244-Dp-DUO" id="ypF-Er-Df7"/>
                         <outlet property="playerView" destination="u2v-dC-7RH" id="Bvc-px-Dj1"/>
                         <outlet property="previousButton" destination="Mqh-xr-Qb5" id="NUL-L6-CFR"/>
+                        <outlet property="pulseImageView" destination="3Vh-8b-Hsm" id="tNF-5U-rui"/>
+                        <outlet property="pulseView" destination="c07-Lr-bFo" id="url-sb-Cuq"/>
                         <outlet property="subtitleLabel" destination="q7d-jZ-DX8" id="bmh-3U-JVC"/>
                         <outlet property="titleLabel" destination="hml-I6-A7G" id="6AR-Ry-arE"/>
                     </connections>
@@ -142,6 +164,7 @@
     </scenes>
     <resources>
         <image name="Forward" width="30" height="30"/>
+        <image name="Microchip" width="25" height="25"/>
         <image name="Play" width="30" height="30"/>
         <image name="Rewind" width="30" height="30"/>
     </resources>
