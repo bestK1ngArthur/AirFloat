@@ -44,18 +44,23 @@ class AirPlayService {
     weak var delegate: AirPlayServiceUpdatable?
 
     var currentTrack: Track?
-    
     var raopServer: RaopServer
     
     var currentRaopSession: RaopSession?
     var currentDacpClient: DacpClient?
 
+    var backgroundHandler = BackgroundHandler()
+    
     init() {
+        // TODO: Get settings
         let emptyString = ("" as NSString).utf8String
         let settings = RaopServerSettings(name: emptyString, password: emptyString, ignore_source_volume: false)
     
         // Create RAOP Server
         self.raopServer = RaopServer(settings: settings)
+        
+        // Set background handler
+        self.backgroundHandler.delegate = self
         
         // Setup music center
         MPRemoteCommandCenter.shared().nextTrackCommand.addTarget { _ -> MPRemoteCommandHandlerStatus in
@@ -82,12 +87,12 @@ class AirPlayService {
     }
     
     func stopServer() {
+        log("AirPlayService: stop server")
         self.raopServer.stop()
     }
     
     func startSession() {
         log("AirPlayService: start session")
-        
         let session = RaopSession(server: raopServer)
         session.delegate = self
         self.currentRaopSession = session
@@ -95,20 +100,22 @@ class AirPlayService {
     
     func stopSession() {
         log("AirPlayService: stop session")
-        
         self.currentRaopSession?.stop()
         self.currentRaopSession = nil
     }
     
     func togglePlay() {
+        log("AirPlayService: toogle play")
         self.currentDacpClient?.togglePlay()
     }
     
     func nextTrack() {
+        log("AirPlayService: next track")
         self.currentDacpClient?.next()
     }
     
     func previousTrack() {
+        log("AirPlayService: previous track")
         self.currentDacpClient?.previous()
     }
     
@@ -243,5 +250,23 @@ extension AirPlayService {
         playingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: isPlaying ? 1.0 : 0.0)
 
         MPNowPlayingInfoCenter.default().nowPlayingInfo = playingInfo
+    }
+}
+
+// MARK: Background mode
+
+extension AirPlayService: BackgroundHandlerDelegate {
+    
+    func handleBackgroundTasks() {
+        backgroundHandler.handleBackgroundTasks()
+    }
+    
+    func handleForegroundTasks() {
+        backgroundHandler.handleForegroundTasks()
+    }
+    
+    func doBackgroundTask() {
+//        stopServer()
+        startServer()
     }
 }
