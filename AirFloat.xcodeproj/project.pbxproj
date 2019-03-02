@@ -40,6 +40,8 @@
 		6AA3B1D322215A7E00570789 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4898FA9613CF2D6C006EC97E /* AudioToolbox.framework */; };
 		6AA3B1D422215A8C00570789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4898FA9413CF17BC006EC97E /* QuartzCore.framework */; };
 		6AA3B1D722215AAB00570789 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4898F9F613CDAAD1006EC97E /* CoreGraphics.framework */; };
+		6AA8EDD5222AA5DB00166B7C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA8EDD4222AA5DB00166B7C /* TextField.swift */; };
+		6AB4F483222A8C8A008241F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB4F482222A8C8A008241F7 /* SettingsViewController.swift */; };
 		6ACAAFCA222855D50059356D /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACAAFC9222855D50059356D /* AppTheme.swift */; };
 		A10392D314E9B58400DB356F /* BarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A10392CF14E9B58400DB356F /* BarButton.png */; };
 		A10392D414E9B58400DB356F /* BarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A10392D014E9B58400DB356F /* BarButton@2x.png */; };
@@ -184,6 +186,8 @@
 		6AA3B1B92221503800570789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA3B1C72221533000570789 /* AirFlow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirFlow-Bridging-Header.h"; sourceTree = "<group>"; };
 		6AA3B1C82221563400570789 /* AirFloat-swift-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AirFloat-swift-Prefix.pch"; path = "AirFlow-swift/AirFloat-swift-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		6AA8EDD4222AA5DB00166B7C /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		6AB4F482222A8C8A008241F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6ACAAFC9222855D50059356D /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		A10392CF14E9B58400DB356F /* BarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarButton.png; sourceTree = "<group>"; };
 		A10392D014E9B58400DB356F /* BarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarButton@2x.png"; sourceTree = "<group>"; };
@@ -437,12 +441,11 @@
 				6AA3B1AD2221503600570789 /* AppDelegate.swift */,
 				6ACAAFC9222855D50059356D /* AppTheme.swift */,
 				6A8882552222A92B00D11B11 /* NotificationService.swift */,
-				6AA3B1AF2221503600570789 /* PlayViewController.swift */,
-				6AA3B1B12221503600570789 /* Main.storyboard */,
-				6AA3B1B62221503800570789 /* LaunchScreen.storyboard */,
-				6AA3B1B42221503800570789 /* Assets.xcassets */,
+				6AA8EDD2222AA4FD00166B7C /* Controllers */,
+				6AA8EDD6222AA5DF00166B7C /* Views */,
 				6A8882542222A82C00D11B11 /* Audio Layer */,
 				6A8882572222FBEB00D11B11 /* Airplay Layer */,
+				6AA8EDD3222AA53700166B7C /* Resources */,
 				6A88824F22215E7100D11B11 /* Supporting Files */,
 			);
 			path = "AirFlow-swift";
@@ -453,6 +456,33 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AA8EDD2222AA4FD00166B7C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AA3B1AF2221503600570789 /* PlayViewController.swift */,
+				6AB4F482222A8C8A008241F7 /* SettingsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6AA8EDD3222AA53700166B7C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AA3B1B12221503600570789 /* Main.storyboard */,
+				6AA3B1B62221503800570789 /* LaunchScreen.storyboard */,
+				6AA3B1B42221503800570789 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6AA8EDD6222AA5DF00166B7C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6AA8EDD4222AA5DB00166B7C /* TextField.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		A116EA8B16EE6278005530E9 /* Source */ = {
@@ -940,12 +970,14 @@
 				6A88825B2223003D00D11B11 /* RaopSession.swift in Sources */,
 				6A88825F2223142100D11B11 /* AirPlayService.swift in Sources */,
 				6A88825D2223101900D11B11 /* Helpers.swift in Sources */,
+				6AA8EDD5222AA5DB00166B7C /* TextField.swift in Sources */,
 				6A8882592222FE1E00D11B11 /* DacpClient.swift in Sources */,
 				6A8882532222A70E00D11B11 /* AudioOutputSession.swift in Sources */,
 				6A888251222295FA00D11B11 /* RaopServer.swift in Sources */,
 				6A8882562222A92B00D11B11 /* NotificationService.swift in Sources */,
 				6A11D7F32229BF7F002EF141 /* BackgroundHandler.swift in Sources */,
 				6ACAAFCA222855D50059356D /* AppTheme.swift in Sources */,
+				6AB4F483222A8C8A008241F7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

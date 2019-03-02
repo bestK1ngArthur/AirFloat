@@ -18,7 +18,6 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
-    @IBOutlet weak var pulseImageView: UIImageView!
     @IBOutlet weak var pulseView: UIView!
     
     override func viewDidLoad() {
@@ -36,17 +35,17 @@ class PlayViewController: UIViewController {
         view.backgroundColor = AppTheme.current.backColor
         playerView.backgroundColor = AppTheme.current.backColor
         
+        artworkImageView.backgroundColor = AppTheme.current.barColor
         artworkImageView.layer.cornerRadius = 16
         
         titleLabel.textColor = AppTheme.current.textColor
         subtitleLabel.textColor = AppTheme.current.textColor
         
-        playButton.tintColor = AppTheme.current.imageColor
-        nextButton.tintColor = AppTheme.current.imageColor
-        previousButton.tintColor = AppTheme.current.imageColor
+        playButton.tintColor = AppTheme.current.titleTextColor
+        nextButton.tintColor = AppTheme.current.titleTextColor
+        previousButton.tintColor = AppTheme.current.titleTextColor
 
-        pulseImageView.tintColor = AppTheme.current.imageColor
-        pulseView.backgroundColor = AppTheme.current.tintTextColor.withAlphaComponent(0.3)
+        pulseView.backgroundColor = AppTheme.current.tintColor.withAlphaComponent(0.3)
         pulseView.layer.cornerRadius = pulseView.frame.height / 2
         pulseView.isHidden = true
     }
@@ -85,11 +84,25 @@ class PlayViewController: UIViewController {
     
     private func startPulsation() {
         pulseView.isHidden = false
-        
+        pulseView.alpha = 0
+
         let scale: CGFloat = 35
-        
-        UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat], animations: {
-            self.pulseView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale)
+        let duration: TimeInterval = 2
+
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: [.repeat], animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.33, animations: {
+                self.pulseView.alpha = 1
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.5, animations: {
+                self.pulseView.alpha = 0
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
+                self.pulseView.transform = CGAffineTransform.identity.scaledBy(x: scale, y: scale)
+            })
+            
         }, completion: nil)
     }
     

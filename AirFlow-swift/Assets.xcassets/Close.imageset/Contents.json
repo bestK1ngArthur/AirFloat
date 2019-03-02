@@ -2,24 +2,22 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Close.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Microchip-50.png",
+      "filename" : "icons8-multiply-60.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Microchip-100.png",
+      "filename" : "icons8-multiply-90.png",
       "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "template"
   }
 }

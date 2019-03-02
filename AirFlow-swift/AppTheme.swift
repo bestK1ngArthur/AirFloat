@@ -14,16 +14,20 @@ struct AppTheme {
     var baseColor: UIColor
     var backColor: UIColor
     var textColor: UIColor
+    var tintColor: UIColor
     var tintTextColor: UIColor
-    var imageColor: UIColor
-
+    var barColor: UIColor
+    var titleTextColor: UIColor
+    
     static var dark: AppTheme {
     
         let darkTheme = AppTheme(baseColor: UIColor(hex: 0x282828),
                                  backColor: UIColor(hex: 0x1E1F22),
                                  textColor: UIColor(hex: 0xFFFFFF),
+                                 tintColor: UIColor(hex: 0x9F96FF),
                                  tintTextColor: UIColor(hex: 0x5B648E),
-                                 imageColor: UIColor(hex: 0x68696B))
+                                 barColor: UIColor(hex: 0x2F3239),
+                                 titleTextColor: UIColor(hex: 0xBBC8EB))
         
         return darkTheme
     }

@@ -37,6 +37,12 @@ protocol AirPlayServiceUpdatable: AnyObject {
     func clientUpdatedControlsState(_ state: ControlsState)
 }
 
+struct AirPlaySettings {
+    let name: String
+    let password: String
+    let ignoreSourceVolume: Bool
+}
+
 class AirPlayService {
 
     static let standart = AirPlayService()
@@ -52,12 +58,14 @@ class AirPlayService {
     var backgroundHandler = BackgroundHandler()
     
     init() {
-        // TODO: Get settings
-        let emptyString = ("" as NSString).utf8String
-        let settings = RaopServerSettings(name: emptyString, password: emptyString, ignore_source_volume: false)
-    
+        let settings = AirPlayService.getSettings()
+        let name = (settings.name as NSString).utf8String
+        let password = (settings.password as NSString).utf8String
+        let ignoreSourceVolume = settings.ignoreSourceVolume
+        let serverSettings = RaopServerSettings(name: name, password: password, ignore_source_volume: ignoreSourceVolume)
+
         // Create RAOP Server
-        self.raopServer = RaopServer(settings: settings)
+        self.raopServer = RaopServer(settings: serverSettings)
         
         // Set background handler
         self.backgroundHandler.delegate = self
@@ -117,6 +125,45 @@ class AirPlayService {
     func previousTrack() {
         log("AirPlayService: previous track")
         self.currentDacpClient?.previous()
+    }
+    
+    // MARK: Server Settings
+    
+    var settings: AirPlaySettings {
+        return AirPlayService.getSettings()
+    }
+    
+    func updateSettings(_ settings: AirPlaySettings) {
+        
+        guard let name = (settings.name as NSString).utf8String,
+            let password = (settings.password as NSString).utf8String else {
+            return
+        }
+        
+        let serverSettings = RaopServerSettings(name: name, password: password, ignore_source_volume: settings.ignoreSourceVolume)
+        raopServer.updateSettings(serverSettings)
+        
+        AirPlayService.saveSettings(settings)
+    }
+    
+    static private let settingsNameKey = "settingsName"
+    static private let settingsPasswordKey = "settingsPassword"
+    static private let settingsSourceVolumeKey = "settingsSourceVolume"
+    
+    static private func getSettings() -> AirPlaySettings {
+        
+        let name = UserDefaults.standard.string(forKey: settingsNameKey) ?? "AirFloat"
+        let password = UserDefaults.standard.string(forKey: settingsPasswordKey) ?? ""
+        let ignoreSourceVolume = UserDefaults.standard.bool(forKey: settingsSourceVolumeKey)
+
+        return AirPlaySettings(name: name, password: password, ignoreSourceVolume: ignoreSourceVolume)
+    }
+    
+    static private func saveSettings(_ settings: AirPlaySettings) {
+        
+        UserDefaults.standard.set(settings.name, forKey: settingsNameKey)
+        UserDefaults.standard.set(settings.password, forKey: settingsPasswordKey)
+        UserDefaults.standard.set(settings.ignoreSourceVolume, forKey: settingsSourceVolumeKey)
     }
     
     // MARK: Track info updating logic
