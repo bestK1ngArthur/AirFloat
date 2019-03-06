@@ -50,6 +50,11 @@ class PlayViewController: UIViewController {
         pulseView.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateTitle()
+    }
+    
     @IBAction func playButtonTapped(_ sender: Any) {
         AirPlayService.standart.togglePlay()
     }
@@ -110,6 +115,10 @@ class PlayViewController: UIViewController {
 
         pulseView.layer.removeAllAnimations()
         pulseView.isHidden = true
+    }
+    
+    private func updateTitle() {
+        navigationItem.title = AirPlayService.standart.settings.name
     }
 }
 
