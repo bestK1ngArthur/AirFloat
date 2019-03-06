@@ -111,6 +111,7 @@ class RaopSession {
             selfObject.delegate?.clientUpdatedTrackInfo(selfObject, trackInfo: trackInfo)
             
         }, selfPointer)
+        
         raop_session_set_ended_callback(session, { (_, context) in
             
             guard let context = context else {
