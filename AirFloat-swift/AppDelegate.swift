@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AirFlow-swift
+//  AirFloat-swift
 //
 //  Created by bestK1ng on 23/02/2019.
 //

@@ -1,6 +1,6 @@
 //
 //  SettingsViewController.swift
-//  AirFlow-swift
+//  AirFloat-swift
 //
 //  Created by bestK1ng on 02/03/2019.
 //
