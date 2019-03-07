@@ -17,6 +17,7 @@
 		4898FA9513CF17BC006EC97E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4898FA9413CF17BC006EC97E /* QuartzCore.framework */; };
 		4898FA9713CF2D6C006EC97E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4898FA9613CF2D6C006EC97E /* AudioToolbox.framework */; };
 		6A11D7F32229BF7F002EF141 /* BackgroundHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A11D7F22229BF7F002EF141 /* BackgroundHandler.swift */; };
+		6A7B178122314E8F00BCC4D2 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B178022314E8F00BCC4D2 /* SupportViewController.swift */; };
 		6A888251222295FA00D11B11 /* RaopServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A888250222295FA00D11B11 /* RaopServer.swift */; };
 		6A8882532222A70E00D11B11 /* AudioOutputSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8882522222A70E00D11B11 /* AudioOutputSession.swift */; };
 		6A8882562222A92B00D11B11 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8882552222A92B00D11B11 /* NotificationService.swift */; };
@@ -170,6 +171,7 @@
 		4898FA9413CF17BC006EC97E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4898FA9613CF2D6C006EC97E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6A11D7F22229BF7F002EF141 /* BackgroundHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHandler.swift; sourceTree = "<group>"; };
+		6A7B178022314E8F00BCC4D2 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		6A888250222295FA00D11B11 /* RaopServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaopServer.swift; sourceTree = "<group>"; };
 		6A8882522222A70E00D11B11 /* AudioOutputSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioOutputSession.swift; sourceTree = "<group>"; };
 		6A8882552222A92B00D11B11 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			children = (
 				6AA3B1AF2221503600570789 /* PlayViewController.swift */,
 				6AB4F482222A8C8A008241F7 /* SettingsViewController.swift */,
+				6A7B178022314E8F00BCC4D2 /* SupportViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				6A88825D2223101900D11B11 /* Helpers.swift in Sources */,
 				6AA8EDD5222AA5DB00166B7C /* TextField.swift in Sources */,
 				6A8882592222FE1E00D11B11 /* DacpClient.swift in Sources */,
+				6A7B178122314E8F00BCC4D2 /* SupportViewController.swift in Sources */,
 				6A8882532222A70E00D11B11 /* AudioOutputSession.swift in Sources */,
 				6A888251222295FA00D11B11 /* RaopServer.swift in Sources */,
 				6A8882562222A92B00D11B11 /* NotificationService.swift in Sources */,

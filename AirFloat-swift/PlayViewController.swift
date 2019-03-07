@@ -53,6 +53,10 @@ class PlayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateTitle()
+
+        if playerState == .hidden {
+            startPulsation()
+        }
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
@@ -72,7 +76,9 @@ class PlayViewController: UIViewController {
         case hidden
     }
     
+    private var playerState: PlayerState = .hidden
     private func changePlayerState(_ state: PlayerState) {
+        self.playerState = state
         
         let isHidden = state != .shown
         
@@ -88,6 +94,7 @@ class PlayViewController: UIViewController {
     }
     
     private func startPulsation() {
+        pulseView.transform = CGAffineTransform.identity
         pulseView.isHidden = false
         pulseView.alpha = 0
 
@@ -112,7 +119,6 @@ class PlayViewController: UIViewController {
     }
     
     private func finishPulsation() {
-
         pulseView.layer.removeAllAnimations()
         pulseView.isHidden = true
     }
